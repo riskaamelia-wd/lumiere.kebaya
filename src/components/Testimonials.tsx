@@ -29,7 +29,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="relative overflow-hidden bg-[#efe3cb] px-6 pb-10 pt-8 md:px-10">
+    <section className="relative overflow-hidden bg-[#efe3cb]">
       <div className="absolute inset-0 opacity-[0.06]">
         <div
           className="absolute inset-0"
@@ -41,7 +41,7 @@ export function Testimonials() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-5xl">
+      <div className="relative z-10 w-full">
         <h2 className="mb-8 text-center font-serif text-4xl text-[#2c1417]">
           Client Testimonials
         </h2>

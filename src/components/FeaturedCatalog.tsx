@@ -42,10 +42,7 @@ const catalogItems = [
 
 export function FeaturedCatalog() {
   return (
-    <section
-      className="relative bg-[#2a0f17] px-6 pb-10 pt-8 md:px-10"
-      id="katalog"
-    >
+    <section className="relative bg-[#2a0f17] pb-6 pt-4" id="katalog">
       <img
         src={ornamentImage}
         alt="Ornamen katalog kiri"
@@ -57,7 +54,7 @@ export function FeaturedCatalog() {
         className="pointer-events-none absolute right-4 top-4 h-12 scale-x-[-1] opacity-55 md:h-14"
       />
 
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto w-full max-w-5xl">
         <h2 className="mb-8 text-center font-serif text-4xl text-[#d8bc77]">
           Katalog Unggulan
         </h2>
@@ -68,7 +65,7 @@ export function FeaturedCatalog() {
               key={item.id}
               className="overflow-hidden border border-[#d8bc77]/50 bg-[#2e151b] p-2 text-center shadow-lg"
             >
-              <div className="aspect-[4/5] overflow-hidden border border-[#d8bc77]/50">
+              <div className="aspect-4/5 overflow-hidden border border-[#d8bc77]/50">
                 <ImageWithFallback
                   src={item.image}
                   alt={item.title}

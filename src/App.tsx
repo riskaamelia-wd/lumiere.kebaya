@@ -5,13 +5,43 @@ import { About } from "./components/About";
 import { Footer } from "./components/Footer";
 import { Testimonials } from "./components/Testimonials";
 import { HowToRent } from "./components/HowToRent";
+import ornamenSudutImage from "./assets/ornamen_atas.png";
+import ornamenImage from "./assets/ornamen.png";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#2a0f17]">
-      <div className="mx-auto max-w-[1200px]">
+    <div className="relative min-h-screen overflow-x-clip bg-[#2a0f17]">
+      <img
+        src={ornamenSudutImage}
+        alt="Ornamen sudut kanan atas"
+        className="pointer-events-none fixed right-0 top-0 z-20 w-[clamp(4.5rem,10vw,8rem)] opacity-80"
+      />
+      <img
+        src={ornamenSudutImage}
+        alt="Ornamen sudut kiri atas"
+        className="pointer-events-none fixed left-0 top-0 z-20 w-[clamp(4.5rem,10vw,8rem)] scale-x-[-1] opacity-80"
+      />
+      <img
+        src={ornamenSudutImage}
+        alt="Ornamen sudut kanan bawah"
+        className="pointer-events-none fixed bottom-0 right-0 z-20 w-[clamp(4.5rem,10vw,8rem)] scale-y-[-1] opacity-80"
+      />
+      <img
+        src={ornamenSudutImage}
+        alt="Ornamen sudut kiri bawah"
+        className="pointer-events-none fixed bottom-0 left-0 z-20 w-[clamp(4.5rem,10vw,8rem)] scale-x-[-1] scale-y-[-1] opacity-80"
+      />
+
+      <div className="relative z-10 mx-auto w-full max-w-[1200px] px-3 py-2 md:px-4 md:py-3">
         <Navigation />
         <Hero />
+        <div className="flex justify-center py-2">
+          <img
+            src={ornamenImage}
+            alt="Ornamen pemisah katalog"
+            className="h-auto w-[clamp(8rem,18vw,14rem)] opacity-75"
+          />
+        </div>
         <FeaturedCatalog />
         <HowToRent />
         <About />

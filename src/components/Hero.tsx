@@ -3,8 +3,8 @@ import heroImage from "../assets/4483e31538bb4162916892c7db3ae9fb3156e0a3.png";
 
 export function Hero() {
   return (
-    <section className="px-6 pb-7 pt-5 md:px-10" id="home">
-      <div className="mx-auto max-w-5xl overflow-hidden border border-[#d8bc77]/40 bg-[#f0e3cc] shadow-xl">
+    <section className="pb-4 pt-3" id="home">
+      <div className="mx-auto w-full max-w-5xl overflow-hidden border border-[#d8bc77]/40 bg-[#f0e3cc] shadow-xl">
         <div className="grid items-center gap-6 md:grid-cols-2">
           <div className="p-6 md:p-8">
             <h2 className="mb-3 font-serif text-3xl leading-tight text-[#2c1417] md:text-5xl">

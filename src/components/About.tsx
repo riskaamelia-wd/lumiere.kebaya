@@ -1,7 +1,7 @@
 export function About() {
   return (
-    <section className="bg-[#efe3cb] px-6 py-10 md:px-10">
-      <div className="mx-auto max-w-5xl">
+    <section className="bg-[#efe3cb]">
+      <div className="w-full">
         <h2 className="mb-7 text-center font-serif text-4xl text-[#2c1417]">
           Tentang Lumière Kebaya
         </h2>

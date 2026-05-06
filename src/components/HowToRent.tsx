@@ -37,8 +37,8 @@ export function HowToRent() {
   ];
 
   return (
-    <section className="bg-[#2b0f17] px-6 pb-8 pt-8 md:px-10" id="cara-sewa">
-      <div className="mx-auto max-w-5xl">
+    <section className="bg-[#2b0f17]" id="cara-sewa">
+      <div className="w-full">
         <h2 className="mb-8 text-center font-serif text-4xl text-[#d8bc77]">
           Bagaimana Cara Sewa?
         </h2>

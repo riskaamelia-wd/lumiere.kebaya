@@ -3,7 +3,7 @@ import ornamenImage from "../assets/ornamen.png";
 
 export function Navigation() {
   return (
-    <nav className="relative px-6 pt-6 md:px-10">
+    <nav className="relative pt-2 md:pt-3">
       <img
         src={ornamenImage}
         alt="Ornamen kiri"
@@ -15,7 +15,7 @@ export function Navigation() {
         className="pointer-events-none absolute right-2 top-2 h-14 scale-x-[-1] opacity-65"
       />
 
-      <div className="mx-auto max-w-5xl rounded-t-2xl border border-[#c9a961]/30 bg-[#2b0f17] px-4 py-6 shadow-[0_0_20px_rgba(0,0,0,0.25)]">
+      <div className="mx-auto w-full max-w-5xl border border-[#c9a961]/30 bg-[#2b0f17] py-6 shadow-[0_0_20px_rgba(0,0,0,0.25)]">
         <div className="mb-5 flex justify-center">
           <img
             src={logoImage}
