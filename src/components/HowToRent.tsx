@@ -37,38 +37,40 @@ export function HowToRent() {
   ];
 
   return (
-    <section className="bg-[#2b0f17]" id="cara-sewa">
-      <div className="w-full">
-        <h2 className="mb-8 text-center font-serif text-4xl text-[#d8bc77]">
+    <section className="bg-[#2b0f17] pb-26 pt-16" id="cara-sewa">
+      <div className="mx-auto w-full max-w-5xl">
+        <h2 className="mb-10 text-center font-serif text-5xl  md:pb-16 tracking-tight text-[#d8bc77]">
           Bagaimana Cara Sewa?
         </h2>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-4 md:gap-12  ">
           {steps.map((step, index) => (
             <div key={step.number} className="relative">
               {index < steps.length - 1 && (
-                <div className="absolute left-[60%] top-6 z-0 hidden h-0.5 w-[85%] bg-[#d8bc77]/40 md:block" />
+                <div className="absolute left-[62%] top-8 z-0 hidden h-[3px] w-[80%] bg-[#d8bc77]/55 md:block" />
               )}
 
               <div className="relative z-10 text-center">
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#d8bc77] bg-[#2b0f17]">
-                  <step.icon className="h-5 w-5 text-[#d8bc77]" />
+                <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full border-[3px] border-[#d8bc77]/80 bg-[#2b0f17] ring-1 ring-[#d8bc77]/20">
+                  <step.icon className="h-7 w-7 text-[#d8bc77]" />
                 </div>
-                <div className="absolute left-1/2 top-[-10px] flex h-6 w-6 -translate-x-1/2 items-center justify-center rounded-full bg-[#d8bc77] text-xs font-bold text-[#2b0f17]">
+                <div className="absolute left-1/2 top-[-14px] flex h-9 w-9 -translate-x-1/2 items-center justify-center rounded-full border border-[#8f6d34] bg-[#d8bc77] text-base font-bold text-[#2b0f17]">
                   {step.number}
                 </div>
 
-                <div className="mb-2 overflow-hidden border border-[#d8bc77]/50">
+                <div className="mb-3 mt-12 overflow-hidden border-[3px] border-[#d7be84] bg-[#efe3cb] rounded-md">
                   <img
                     src={step.image}
                     alt={step.title}
-                    className="h-28 w-full object-cover"
+                    className="aspect-square w-full object-cover"
                   />
                 </div>
-                <h3 className="mb-1 text-sm leading-tight text-[#f2e6cf]">
+                <h3 className="mb-1 mt-8 font-serif text-2xl leading-[1.03] text-[#f2e6cf]">
                   {step.title}
                 </h3>
-                <p className="text-xs text-[#d8bc77]">{step.description}</p>
+                <p className="font-serif mt-6 leading-[1.02] text-[#d8bc77]">
+                  {step.description}
+                </p>
               </div>
             </div>
           ))}
