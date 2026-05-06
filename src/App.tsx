@@ -1,6 +1,10 @@
 import { Navigation } from "./components/Navigation";
 import { Hero } from "./components/Hero";
 import { FeaturedCatalog } from "./components/FeaturedCatalog";
+import { About } from "./components/About";
+import { Footer } from "./components/Footer";
+import { Testimonials } from "./components/Testimonials";
+import { HowToRent } from "./components/HowToRent";
 
 export default function App() {
   return (
@@ -9,6 +13,10 @@ export default function App() {
         <Navigation />
         <Hero />
         <FeaturedCatalog />
+        <HowToRent />
+        <About />
+        <Testimonials />
+        <Footer />
       </div>
     </div>
   );
