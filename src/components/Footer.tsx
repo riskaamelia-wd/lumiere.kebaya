@@ -55,7 +55,7 @@ function FooterColumnTitle({
 }) {
   return (
     <h3
-      className={` pb-3 pt-3 font-bold  text-sm uppercase tracking-[0.3em] text-[#d4af37] md:text-base ${className}`}
+      className={`pb-3 pt-3 font-bold uppercase text-sm tracking-[0.3em] text-[#d4af37] md:text-xs md:tracking-[0.2em] lg:text-base lg:tracking-[0.3em] ${className}`}
     >
       {children}
     </h3>
@@ -63,18 +63,18 @@ function FooterColumnTitle({
 }
 
 function footerLinkClass() {
-  return "block text-sm text-[#f5e6be] transition-colors hover:text-[#d4af37] tracking-[0.2em]";
+  return "block text-sm tracking-[0.2em] text-[#f5e6be] transition-colors hover:text-[#d4af37] md:text-xs md:tracking-[0.12em] lg:text-sm lg:tracking-[0.2em]";
 }
 
 export function Footer() {
   return (
     <footer
-      className="relative overflow-hidden bg-[#2d0b0b] text-[#f5e6be] py-12 "
+      className="relative overflow-hidden bg-[#2d0b0b] text-[#f5e6be] py-12 mt-3 "
       id="kontak"
     >
       <div className="relative z-10">
-        <div className="flex flex-col items-center gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-8 xl:gap-12">
-          <div className="flex w-full max-w-md shrink-0 justify-between gap-8 sm:max-w-none sm:justify-start  border-t-2 border-[#d4af37]/55 md:gap-14 lg:w-auto lg:max-w-none">
+        <div className="flex flex-col items-center gap-12 md:flex-row md:items-start md:justify-between md:gap-8 xl:gap-12">
+          <div className="flex w-full max-w-md shrink-0 justify-between gap-8 sm:max-w-none sm:justify-start  border-t-2 border-[#d4af37]/55 md:w-auto md:max-w-none md:gap-14">
             <div className="min-w-[7.5rem] flex-1 sm:flex-none">
               <FooterColumnTitle>Tautan Langsung</FooterColumnTitle>
               <nav className="space-y-2.5">
@@ -105,19 +105,21 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="flex w-[clamp(7rem,12vw,10rem)] shrink-0 flex-col items-center p-0 lg:h-auto lg:flex-1 lg:justify-center">
+          <div className="flex w-[clamp(7rem,12vw,10rem)] shrink-0 flex-col items-center p-0 md:w-[5.5rem] md:h-auto md:mt-6 md:justify-center lg:mt-0 lg:w-[clamp(7rem,12vw,10rem)] lg:flex-1">
             <img
               src={logoImage}
               alt="Lumière Kebaya"
-              className="block h-auto max-h-[clamp(7rem,12vw,10rem)] w-full object-contain"
+              className="block h-auto w-full object-contain max-h-[clamp(7rem,12vw,10rem)] md:max-h-[5.5rem] lg:max-h-[clamp(7rem,12vw,10rem)]"
             />
           </div>
 
-          <div className="w-full shrink-0  lg:max-w-sm xl:max-w-md  border-t border-[#d4af37]/55">
-            <FooterColumnTitle className="text-left">Kontak</FooterColumnTitle>
+          <div className="w-full shrink-0 border-t border-[#d4af37]/55 md:max-w-sm xl:max-w-md ">
+            <FooterColumnTitle className="md:text-left text-center">
+              Kontak
+            </FooterColumnTitle>
 
-            <div className="mt-3 flex flex-col items-center gap-8 sm:flex-row sm:items-center justify-start lg:gap-12">
-              <address className="space-y-3  text-sm not-italic">
+            <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-center md:items-start lg:items-center justify-start md:gap-18 lg:gap-12">
+              <address className="space-y-3 text-sm md:text-xs lg:text-sm not-italic">
                 <div className="flex items-start gap-3 justify-start">
                   <Phone
                     className="mt-0.5 h-4 w-4 shrink-0 text-[#d4af37]"
@@ -125,7 +127,7 @@ export function Footer() {
                   />
                   <a
                     href="tel:+628997337380"
-                    className="text-left transition-colors hover:text-[#d4af37] lg:text-right tracking-[0.2em]"
+                    className="text-left transition-colors hover:text-[#d4af37] md:text-right tracking-[0.2em]"
                   >
                     0899 733 7380
                   </a>
@@ -137,7 +139,7 @@ export function Footer() {
                   />
                   <a
                     href="mailto:info@lumiere.com"
-                    className="break-all text-left transition-colors hover:text-[#d4af37] lg:text-right tracking-[0.2em]"
+                    className="break-all text-left transition-colors hover:text-[#d4af37] md:text-right tracking-[0.2em]"
                   >
                     info@lumiere.com
                   </a>
@@ -151,39 +153,39 @@ export function Footer() {
                     href="https://www.lumiere.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-left transition-colors hover:text-[#d4af37] lg:text-right tracking-[0.2em]"
+                    className="text-left transition-colors hover:text-[#d4af37] md:text-right tracking-[0.2em]"
                   >
                     www.lumiere.com
                   </a>
                 </div>
               </address>
-              <div className="flex gap-2.5 lg:gap-6">
+              <div className="flex flex-row gap-2.5 md:relative md:flex-col md:gap-2.5 md:top-[-1.8rem] lg:static lg:flex-row lg:gap-6 lg:top-0">
                 <a
                   href={FACEBOOK_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook Lumière Kebaya"
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#3d1616] text-[#d4af37] ring-1 ring-[#d4af37]/35 transition-colors hover:bg-[#4a2525]"
+                  className="flex h-12 w-12 md:h-9 md:w-9 lg:h-12 lg:w-12 shrink-0 items-center justify-center rounded-full bg-[#3d1616] text-[#d4af37] ring-1 ring-[#d4af37]/35 transition-colors hover:bg-[#4a2525]"
                 >
-                  <FacebookLogoIcon className="h-[15px] w-[15px]" />
+                  <FacebookLogoIcon className="h-[15px] w-[15px] md:h-3 md:w-3 lg:h-[15px] lg:w-[15px]" />
                 </a>
                 <a
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram Lumière Kebaya"
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#3d1616] text-[#d4af37] ring-1 ring-[#d4af37]/35 transition-colors hover:bg-[#4a2525]"
+                  className="flex h-12 w-12 md:h-9 md:w-9 lg:h-12 lg:w-12 shrink-0 items-center justify-center rounded-full bg-[#3d1616] text-[#d4af37] ring-1 ring-[#d4af37]/35 transition-colors hover:bg-[#4a2525]"
                 >
-                  <InstagramLogoIcon className="h-[15px] w-[15px]" />
+                  <InstagramLogoIcon className="h-[15px] w-[15px] md:h-3 md:w-3 lg:h-[15px] lg:w-[15px]" />
                 </a>
                 <a
                   href={TIKTOK_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="TikTok Lumière Kebaya"
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#3d1616] text-[#d4af37] ring-1 ring-[#d4af37]/35 transition-colors hover:bg-[#4a2525]"
+                  className="flex h-12 w-12 md:h-9 md:w-9 lg:h-12 lg:w-12 shrink-0 items-center justify-center rounded-full bg-[#3d1616] text-[#d4af37] ring-1 ring-[#d4af37]/35 transition-colors hover:bg-[#4a2525]"
                 >
-                  <TikTokLogoIcon className="h-[15px] w-[15px]" />
+                  <TikTokLogoIcon className="h-[15px] w-[15px] md:h-3 md:w-3 lg:h-[15px] lg:w-[15px]" />
                 </a>
               </div>
             </div>
