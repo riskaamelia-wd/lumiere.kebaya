@@ -31,7 +31,7 @@ export default function App() {
         className="pointer-events-none fixed bottom-0 left-0 z-20 w-[clamp(4.5rem,10vw,8rem)] scale-x-[-1] scale-y-[-1] opacity-80"
       />
 
-      <div className="relative z-10 mx-auto w-full  max-w-300 px-3 py-2 md:px-4 md:py-3">
+      <div className="relative z-10 mx-auto w-full  max-w-5xl  px-3 py-2 md:px-4 md:py-3">
         <Navigation />
         <Hero />
         <FeaturedCatalog />

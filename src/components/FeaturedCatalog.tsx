@@ -63,10 +63,10 @@ export function FeaturedCatalog() {
         </div>
 
         <div className="grid grid-cols-1 gap-x-12 gap-y-7 md:grid-cols-3 ">
-          {catalogItems.map((item) => (
+          {catalogItems.map((item, index) => (
             <div
               key={item.id}
-              className="group w-full overflow-hidden bg-transparent p-0 text-center transition-transform duration-300 ease-out hover:-translate-y-1 active:translate-y-0.5 *:rounded-md"
+              className={`group w-full overflow-hidden bg-transparent p-0 text-center transition-transform duration-300 ease-out hover:-translate-y-1 active:translate-y-0.5 *:rounded-md ${index >= 3 ? "hidden md:block" : ""}`}
             >
               <div className="aspect-square overflow-hidden border-[3px] border-[#d7be84] bg-[#efe3cb] transition-all duration-300 ease-out group-hover:shadow-[0_10px_24px_rgba(0,0,0,0.35)] group-active:scale-[0.985]">
                 <ImageWithFallback
