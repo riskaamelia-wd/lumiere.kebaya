@@ -109,7 +109,7 @@ export function Testimonials() {
 
       <div className="relative z-10 mx-auto w-full max-w-5xl px-3 md:px-5">
         <motion.h2
-          className="mb-7 text-center font-serif text-5xl tracking-tight text-[#2c1417]"
+          className="mb-7 text-center font-serif text-3xl tracking-tight text-[#2c1417] sm:text-4xl md:text-5xl"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.05 }}

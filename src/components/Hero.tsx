@@ -43,7 +43,7 @@ export function Hero() {
               href="https://wa.me/6281234567890"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-[#4d2b27] bg-[#2d1419] px-5 py-2.5 text-sm font-semibold tracking-wide text-[#e5c67a] transition-colors hover:bg-[#4d2b27]"
+              className="inline-flex items-center gap-1.5 rounded-full border border-[#4d2b27] bg-[#2d1419] px-4 py-2 text-[0.65rem] font-semibold tracking-[0.06em] text-[#e5c67a] transition-colors hover:bg-[#4d2b27] sm:gap-2 sm:px-5 sm:py-2.5 sm:text-sm sm:tracking-wide"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.05 }}
@@ -51,7 +51,7 @@ export function Hero() {
               whileHover={{ y: -1 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Clock className="w-5 h-5" />
+              <Clock className="h-4 w-4 sm:h-5 sm:w-5" />
               SEWA VIA WHATSAPP (FREE FITTING)
             </motion.a>
           </motion.div>

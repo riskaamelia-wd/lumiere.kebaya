@@ -10,7 +10,7 @@ export function About() {
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <motion.h2
-        className="mb-7 text-center font-serif text-5xl  tracking-tight text-[#d8bc77]"
+        className="mb-7 text-center font-serif text-3xl tracking-tight text-[#d8bc77] sm:text-4xl md:text-5xl"
         // className="mb-7 text-center font-serif text-4xl text-[#c4a457] "
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -67,7 +67,7 @@ export function About() {
             viewport={{ once: true, amount: 0.05 }}
             transition={{ delay: 0.42, duration: 0.45 }}
           >
-            <h3 className="mb-4 font-serif text-4xl italic text-[#c4a457]">
+            <h3 className="mb-4 font-serif text-2xl italic text-[#c4a457] sm:text-3xl md:text-4xl">
               Kisah Keanggunan Lumière
             </h3>
             <p className="mb-5 leading-relaxed text-[#533231]">

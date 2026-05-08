@@ -79,7 +79,7 @@ export function FeaturedCatalog() {
           viewport={{ once: true, amount: 0.05 }}
           transition={{ delay: 0.15, duration: 0.4 }}
         >
-          <h2 className="text-center font-serif text-5xl tracking-tight  mb-8 text-[#d8bc77]">
+          <h2 className="mb-8 text-center font-serif text-3xl tracking-tight text-[#d8bc77] sm:text-4xl md:text-5xl">
             Katalog Unggulan
           </h2>
         </motion.div>
