@@ -1,5 +1,5 @@
 import { Clock } from "lucide-react";
-import heroImage from "../assets/4483e31538bb4162916892c7db3ae9fb3156e0a3.png";
+import heroImage from "../assets/jumbotron.jpg";
 
 export function Hero() {
   return (
