@@ -1,4 +1,5 @@
 import { BookOpen, CalendarCheck2, Search, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function HowToRent() {
   const steps = [
@@ -37,15 +38,35 @@ export function HowToRent() {
   ];
 
   return (
-    <section className="bg-[#2b0f17] pb-26 pt-16" id="cara-sewa">
+    <motion.section
+      className="bg-[#2b0f17] pb-26 pt-16"
+      id="cara-sewa"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.05 }}
+      transition={{ duration: 0.55, ease: "easeOut" }}
+    >
       <div className="mx-auto w-full max-w-5xl">
-        <h2 className="mb-10 text-center font-serif text-5xl  md:pb-16 tracking-tight text-[#d8bc77]">
+        <motion.h2
+          className="mb-10 text-center font-serif text-5xl  md:pb-16 tracking-tight text-[#d8bc77]"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ delay: 0.1, duration: 0.4 }}
+        >
           Bagaimana Cara Sewa?
-        </h2>
+        </motion.h2>
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-4 md:gap-12  ">
           {steps.map((step, index) => (
-            <div key={step.number} className="relative">
+            <motion.div
+              key={step.number}
+              className="relative"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ delay: 0.2 + index * 0.09, duration: 0.4 }}
+            >
               {index < steps.length - 1 && (
                 <div className="absolute left-[62%] top-8 z-0 hidden h-[3px] w-[80%] bg-[#d8bc77]/55 md:block" />
               )}
@@ -59,10 +80,12 @@ export function HowToRent() {
                 </div>
 
                 <div className="mb-3 mt-12 overflow-hidden border-[3px] border-[#d7be84] bg-[#efe3cb] rounded-md">
-                  <img
+                  <motion.img
                     src={step.image}
                     alt={step.title}
                     className="aspect-square w-full object-cover"
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ duration: 0.3 }}
                   />
                 </div>
                 <h3 className="mb-1 mt-8 font-serif text-2xl leading-[1.03] text-[#f2e6cf]">
@@ -72,10 +95,10 @@ export function HowToRent() {
                   {step.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -1,4 +1,5 @@
 import { ImageWithFallback } from "./ImageWithFallback";
+import { motion } from "framer-motion";
 import ornamentImage from "../assets/ornamen.png";
 
 const catalogItems = [
@@ -42,31 +43,56 @@ const catalogItems = [
 
 export function FeaturedCatalog() {
   return (
-    <section className="relative bg-[#2a0f17] pb-8 pt-10" id="katalog">
+    <motion.section
+      className="relative bg-[#2a0f17] pb-8 pt-10"
+      id="katalog"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.05 }}
+      transition={{ duration: 0.55, ease: "easeOut" }}
+    >
       <div className="mx-auto w-full max-w-5xl overflow-visible">
         <div className="relative h-0 overflow-visible">
-          <img
+          <motion.img
             src={ornamentImage}
             alt="Ornamen katalog kiri"
             className="pointer-events-none absolute left-[-5rem] h-18 opacity-75"
+            initial={{ opacity: 0, x: -14 }}
+            whileInView={{ opacity: 0.75, x: 0 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ delay: 0.12, duration: 0.35 }}
           />
-          <img
+          <motion.img
             src={ornamentImage}
             alt="Ornamen katalog kanan"
             className="pointer-events-none absolute right-[-5rem] h-18 scale-x-[-1] opacity-75"
+            initial={{ opacity: 0, x: 14 }}
+            whileInView={{ opacity: 0.75, x: 0 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ delay: 0.12, duration: 0.35 }}
           />
         </div>
-        <div className="relative">
+        <motion.div
+          className="relative"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ delay: 0.15, duration: 0.4 }}
+        >
           <h2 className="text-center font-serif text-5xl tracking-tight  mb-8 text-[#d8bc77]">
             Katalog Unggulan
           </h2>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 gap-x-12 gap-y-7 md:grid-cols-3 ">
           {catalogItems.map((item, index) => (
-            <div
+            <motion.div
               key={item.id}
               className={`group w-full overflow-hidden bg-transparent p-0 text-center transition-transform duration-300 ease-out hover:-translate-y-1 active:translate-y-0.5 *:rounded-md ${index >= 3 ? "hidden md:block" : ""}`}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ delay: 0.2 + index * 0.08, duration: 0.4 }}
             >
               <div className="aspect-square overflow-hidden border-[3px] border-[#d7be84] bg-[#efe3cb] transition-all duration-300 ease-out group-hover:shadow-[0_10px_24px_rgba(0,0,0,0.35)] group-active:scale-[0.985]">
                 <ImageWithFallback
@@ -79,14 +105,18 @@ export function FeaturedCatalog() {
                 <h3 className="mb-3 font-serif text-xl leading-[1.05] text-[#f2e6cf] transition-colors duration-300 group-hover:text-[#f6e7c2]">
                   {item.title}
                 </h3>
-                <button className="rounded-full border border-[#8c6b2d] bg-[#d8bc77] px-5 py-1.5 text-[0.65rem] font-bold uppercase tracking-wider text-[#2a0f17] transition-all duration-200 hover:bg-[#e8cd8d] hover:shadow-[0_6px_14px_rgba(0,0,0,0.28)] active:scale-95">
+                <motion.button
+                  className="rounded-full border border-[#8c6b2d] bg-[#d8bc77] px-5 py-1.5 text-[0.65rem] font-bold uppercase tracking-wider text-[#2a0f17] transition-all duration-200 hover:bg-[#e8cd8d] hover:shadow-[0_6px_14px_rgba(0,0,0,0.28)] active:scale-95"
+                  whileHover={{ y: -1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
                   Lihat Detail
-                </button>
+                </motion.button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 
 const testimonials = [
@@ -88,7 +89,13 @@ export function Testimonials() {
   }, [maxIndex]);
 
   return (
-    <section className="relative overflow-hidden border-y border-[#dac58f]/50 bg-[#efe3cb] py-7">
+    <motion.section
+      className="relative overflow-hidden border-y border-[#dac58f]/50 bg-[#efe3cb] py-7"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.05 }}
+      transition={{ duration: 0.55, ease: "easeOut" }}
+    >
       <div className="absolute inset-0 opacity-[0.09]">
         <div
           className="absolute inset-0"
@@ -101,9 +108,15 @@ export function Testimonials() {
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-5xl px-3 md:px-5">
-        <h2 className="mb-7 text-center font-serif text-5xl tracking-tight text-[#2c1417]">
+        <motion.h2
+          className="mb-7 text-center font-serif text-5xl tracking-tight text-[#2c1417]"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ delay: 0.1, duration: 0.4 }}
+        >
           Client Testimonials
-        </h2>
+        </motion.h2>
 
         <div className="overflow-hidden">
           <div
@@ -113,10 +126,17 @@ export function Testimonials() {
             }}
           >
             {testimonials.map((testimonial) => (
-              <div
+              <motion.div
                 key={testimonial.id}
                 className="px-2 text-center"
                 style={{ flex: `0 0 ${100 / cardsPerView}%` }}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.05 }}
+                transition={{
+                  delay: 0.2 + (testimonial.id - 1) * 0.06,
+                  duration: 0.35,
+                }}
               >
                 <div className="mx-auto mb-3 h-28 w-28 overflow-hidden rounded-full border-[3px] border-[#d1b374] shadow-[0_2px_10px_rgba(0,0,0,0.12)]">
                   <img
@@ -142,15 +162,21 @@ export function Testimonials() {
                 <p className="text-sm font-semibold text-[#2c1417]">
                   {testimonial.name}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
         {maxIndex > 0 && (
-          <div className="mt-5 flex justify-center gap-2">
+          <motion.div
+            className="mt-5 flex justify-center gap-2"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ delay: 0.35, duration: 0.35 }}
+          >
             {Array.from({ length: maxIndex + 1 }).map((_, dotIndex) => (
-              <button
+              <motion.button
                 key={dotIndex}
                 type="button"
                 aria-label={`Lihat slide ${dotIndex + 1}`}
@@ -158,11 +184,13 @@ export function Testimonials() {
                   currentIndex === dotIndex ? "bg-[#8f6d34]" : "bg-[#d4be8f]"
                 }`}
                 onClick={() => setCurrentIndex(dotIndex)}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
               />
             ))}
-          </div>
+          </motion.div>
         )}
       </div>
-    </section>
+    </motion.section>
   );
 }

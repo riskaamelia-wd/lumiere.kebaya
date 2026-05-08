@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { motion } from "framer-motion";
 import { Globe, Mail, Phone } from "lucide-react";
 import logoImage from "../assets/logo.png";
 
@@ -55,7 +56,7 @@ function FooterColumnTitle({
 }) {
   return (
     <h3
-      className={`pb-3 pt-3 font-bold uppercase text-sm tracking-[0.3em] text-[#d4af37] md:text-xs md:tracking-[0.2em] lg:text-base lg:tracking-[0.3em] ${className}`}
+      className={`pb-3 pt-3 font-bold uppercase text-sm tracking-[0.3em] text-[#d4af37] md:text-xs md:tracking-[0.2em] lg:text-sm  ${className}`}
     >
       {children}
     </h3>
@@ -68,13 +69,23 @@ function footerLinkClass() {
 
 export function Footer() {
   return (
-    <footer
+    <motion.footer
       className="relative overflow-hidden bg-[#2d0b0b] text-[#f5e6be] py-12 mt-3 "
       id="kontak"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.05 }}
+      transition={{ duration: 0.55, ease: "easeOut" }}
     >
       <div className="relative z-10">
-        <div className="flex flex-col items-center gap-12 md:flex-row md:items-start md:justify-between md:gap-8 xl:gap-12">
-          <div className="flex w-full max-w-md shrink-0 justify-between gap-8 sm:max-w-none sm:justify-start  border-t-2 border-[#d4af37]/55 md:w-auto md:max-w-none md:gap-14">
+        <div className="flex flex-col items-center gap-12 md:flex-row md:items-start md:justify-between md:gap-8 lg:gap-6">
+          <motion.div
+            className="flex w-full max-w-md shrink-0 justify-between gap-8 border-t-2 border-[#d4af37]/55 sm:max-w-none sm:justify-start md:w-auto md:max-w-none md:gap-14 "
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ delay: 0.12, duration: 0.45 }}
+          >
             <div className="min-w-[7.5rem] flex-1 sm:flex-none">
               <FooterColumnTitle>Tautan Langsung</FooterColumnTitle>
               <nav className="space-y-2.5">
@@ -103,23 +114,37 @@ export function Footer() {
                 </a>
               </nav>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="flex w-[clamp(7rem,12vw,10rem)] shrink-0 flex-col items-center p-0 md:w-[5.5rem] md:h-auto md:mt-6 md:justify-center lg:mt-0 lg:w-[clamp(7rem,12vw,10rem)] lg:flex-1">
-            <img
+          <motion.div
+            className="flex w-[clamp(10rem,18vw,14rem)] shrink-0 flex-col items-center p-0 md:h-auto md:w-[clamp(7rem,14vw,9rem)] md:mt-6 md:justify-center lg:mt-0 lg:w-[clamp(10rem,18vw,14rem)] lg:flex-1 "
+            initial={{ opacity: 0, scale: 0.94 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ delay: 0.2, duration: 0.45 }}
+          >
+            <motion.img
               src={logoImage}
               alt="Lumière Kebaya"
-              className="block h-auto w-full object-contain max-h-[clamp(7rem,12vw,10rem)] md:max-h-[5.5rem] lg:max-h-[clamp(7rem,12vw,10rem)]"
+              className="block h-auto w-full object-contain max-h-[clamp(10rem,18vw,14rem)] md:max-h-[clamp(10rem,18vw,14rem)] lg:w-[clamp(10rem,18vw,14rem)]"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.2 }}
             />
-          </div>
+          </motion.div>
 
-          <div className="w-full shrink-0 border-t border-[#d4af37]/55 md:max-w-sm xl:max-w-md ">
+          <motion.div
+            className="w-full shrink-0 border-t border-[#d4af37]/55 md:max-w-sm lg:max-w-md "
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ delay: 0.18, duration: 0.45 }}
+          >
             <FooterColumnTitle className="md:text-left text-center">
               Kontak
             </FooterColumnTitle>
 
-            <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-center md:items-start lg:items-center justify-start md:gap-18 lg:gap-12">
-              <address className="space-y-3 text-sm md:text-xs lg:text-sm not-italic">
+            <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-center md:items-start lg:items-center lg:justify-around  justify-start md:gap-18 lg:gap-12">
+              <address className="space-y-3 text-sm md:text-xs lg:text-sm not-italic ">
                 <div className="flex items-start gap-3 justify-start">
                   <Phone
                     className="mt-0.5 h-4 w-4 shrink-0 text-[#d4af37]"
@@ -159,43 +184,55 @@ export function Footer() {
                   </a>
                 </div>
               </address>
-              <div className="flex flex-row gap-2.5 md:relative md:flex-col md:gap-2.5 md:top-[-1.8rem] lg:static lg:flex-row lg:gap-6 lg:top-0">
-                <a
+              <div className="flex flex-row gap-2.5 md:relative md:flex-col md:gap-2.5 md:top-[-1.8rem] lg:static lg:flex-row lg:gap-4 lg:top-0 ">
+                <motion.a
                   href={FACEBOOK_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook Lumière Kebaya"
                   className="flex h-12 w-12 md:h-9 md:w-9 lg:h-12 lg:w-12 shrink-0 items-center justify-center rounded-full bg-[#3d1616] text-[#d4af37] ring-1 ring-[#d4af37]/35 transition-colors hover:bg-[#4a2525]"
+                  whileHover={{ y: -1 }}
+                  whileTap={{ scale: 0.96 }}
                 >
                   <FacebookLogoIcon className="h-[15px] w-[15px] md:h-3 md:w-3 lg:h-[15px] lg:w-[15px]" />
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram Lumière Kebaya"
                   className="flex h-12 w-12 md:h-9 md:w-9 lg:h-12 lg:w-12 shrink-0 items-center justify-center rounded-full bg-[#3d1616] text-[#d4af37] ring-1 ring-[#d4af37]/35 transition-colors hover:bg-[#4a2525]"
+                  whileHover={{ y: -1 }}
+                  whileTap={{ scale: 0.96 }}
                 >
                   <InstagramLogoIcon className="h-[15px] w-[15px] md:h-3 md:w-3 lg:h-[15px] lg:w-[15px]" />
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href={TIKTOK_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="TikTok Lumière Kebaya"
                   className="flex h-12 w-12 md:h-9 md:w-9 lg:h-12 lg:w-12 shrink-0 items-center justify-center rounded-full bg-[#3d1616] text-[#d4af37] ring-1 ring-[#d4af37]/35 transition-colors hover:bg-[#4a2525]"
+                  whileHover={{ y: -1 }}
+                  whileTap={{ scale: 0.96 }}
                 >
                   <TikTokLogoIcon className="h-[15px] w-[15px] md:h-3 md:w-3 lg:h-[15px] lg:w-[15px]" />
-                </a>
+                </motion.a>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="mt-12 border-t border-[#d4af37]/20 pt-6 text-center text-xs text-[#d4af37]/55 md:text-sm">
+        <motion.div
+          className="mt-12 border-t border-[#d4af37]/20 pt-6 text-center text-xs text-[#d4af37]/55 md:text-sm"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ delay: 0.3, duration: 0.4 }}
+        >
           <p>&copy; 2026 Lumière Kebaya. All rights reserved.</p>
-        </div>
+        </motion.div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }
