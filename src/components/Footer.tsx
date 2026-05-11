@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { Globe, Mail, MessageCircle, Phone } from "lucide-react";
 import logoImage from "../assets/logo.png";
-import ornamentImage from "../assets/ornamen.png";
 import {
   GENERAL_WHATSAPP_MESSAGE,
   WHATSAPP_NUMBER,
@@ -90,23 +89,6 @@ export function Footer() {
       viewport={{ once: true, amount: 0.05 }}
       transition={{ duration: 0.55, ease: "easeOut" }}
     >
-      <motion.img
-        src={ornamentImage}
-        alt=""
-        className="pointer-events-none absolute -bottom-2 -left-8 z-10 h-20 opacity-55 md:h-24"
-        aria-hidden
-        animate={{ y: [0, -7, 0], rotate: [0, -2, 0] }}
-        transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.img
-        src={ornamentImage}
-        alt=""
-        className="pointer-events-none absolute -bottom-2 -right-8 z-10 h-20 scale-x-[-1] opacity-55 md:h-24"
-        aria-hidden
-        animate={{ y: [0, -7, 0], rotate: [0, 2, 0] }}
-        transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
-      />
-
       <div className="relative z-10 overflow-hidden rounded-4xl border border-[#d8bc77]/20 bg-[#250b12]/78 p-5 shadow-[0_-18px_70px_-48px_rgba(216,188,119,0.85)] backdrop-blur-[2px] md:p-7 lg:p-8">
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(216,188,119,0.16),transparent_42%),linear-gradient(180deg,rgba(216,188,119,0.06),transparent_34%)]"
