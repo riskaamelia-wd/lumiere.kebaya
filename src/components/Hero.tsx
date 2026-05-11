@@ -107,7 +107,7 @@ export function Hero() {
             </motion.div>
           </motion.div>
           <motion.div
-            className="relative min-h-[min(58vh,28rem)] overflow-hidden md:min-h-[min(78vh,42rem)]"
+            className="relative hidden min-h-[min(58vh,28rem)] overflow-hidden md:block md:min-h-[min(78vh,42rem)]"
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.05 }}

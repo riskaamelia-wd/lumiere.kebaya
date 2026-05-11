@@ -49,7 +49,10 @@ function StepMockup({ type }: { type: StepIllustration }) {
           Detail Sewa
         </p>
         {["Produk", "Ukuran", "Tanggal", "Durasi", "Total"].map((item) => (
-          <div key={item} className="mb-1.5 flex items-center gap-2 text-[0.58rem]">
+          <div
+            key={item}
+            className="mb-1.5 flex items-center gap-2 text-[0.58rem]"
+          >
             <Check className="h-3 w-3 text-[#7c5c26]" />
             <span>{item}</span>
           </div>
@@ -123,7 +126,7 @@ export function HowToRent() {
 
   return (
     <motion.section
-      className="relative overflow-hidden pb-18 pt-14 md:pb-24 md:pt-18"
+      className="relative flex min-h-screen items-center overflow-hidden py-8 md:min-h-0 md:py-14 lg:min-h-screen lg:pb-24 lg:pt-18"
       id="cara-sewa"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -136,7 +139,7 @@ export function HowToRent() {
       />
       <div className="relative mx-auto w-full max-w-5xl">
         <motion.div
-          className="mx-auto mb-10 max-w-2xl text-center md:mb-14"
+          className="mx-auto mb-6 max-w-2xl text-center md:mb-10 lg:mb-14"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.05 }}
@@ -148,7 +151,7 @@ export function HowToRent() {
           <h2 className="font-serif text-3xl tracking-tight text-[#f2e6cf] sm:text-4xl md:text-5xl">
             Bagaimana Cara Sewa?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-[#f2e6cf]/70 md:text-base">
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-[#f2e6cf]/70 md:mt-4 md:text-base">
             Dari pilih koleksi sampai fitting, semua dibuat ringkas agar kebaya
             siap dipakai di hari spesial Anda.
           </p>
@@ -156,10 +159,10 @@ export function HowToRent() {
 
         <div className="relative">
           <div
-            className="absolute left-1/2 top-10 hidden h-px w-[76%] -translate-x-1/2 bg-linear-to-r from-transparent via-[#d8bc77]/45 to-transparent md:block"
+            className="absolute left-1/2 top-10 hidden h-px w-[76%] -translate-x-1/2 bg-linear-to-r from-transparent via-[#d8bc77]/45 to-transparent lg:block"
             aria-hidden
           />
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5 lg:gap-4">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5 lg:gap-4">
             {steps.map((step, index) => (
               <motion.div
                 key={step.number}
@@ -169,8 +172,14 @@ export function HowToRent() {
                 viewport={{ once: true, amount: 0.05 }}
                 transition={{ delay: 0.2 + index * 0.09, duration: 0.4 }}
               >
-                <div className="relative h-full overflow-hidden rounded-3xl border border-[#d8bc77]/20 bg-[#f2e6cf]/6 p-3 shadow-[0_18px_46px_-34px_rgba(0,0,0,0.85)] backdrop-blur-[1px] transition-all duration-300 group-hover:-translate-y-1 group-hover:border-[#d8bc77]/45 group-hover:bg-[#f2e6cf]/8">
-                  <div className="relative flex aspect-4/5 items-center justify-center overflow-hidden rounded-2xl border border-[#d8bc77]/35 bg-[radial-gradient(circle_at_50%_20%,rgba(216,188,119,0.18),transparent_45%),rgba(43,15,23,0.62)]">
+                <div className="relative flex h-full items-center gap-3 overflow-hidden rounded-3xl border border-[#d8bc77]/20 bg-[#f2e6cf]/6 p-3 shadow-[0_18px_46px_-34px_rgba(0,0,0,0.85)] backdrop-blur-[1px] transition-all duration-300 group-hover:-translate-y-1 group-hover:border-[#d8bc77]/45 group-hover:bg-[#f2e6cf]/8 lg:block">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#d8bc77]/35 bg-[#2b0f17]/70 text-[#d8bc77] shadow-lg backdrop-blur lg:hidden">
+                    <step.icon className="h-5 w-5" />
+                  </div>
+                  <div className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full border border-[#d8bc77]/35 bg-[#d8bc77]/20 text-xs font-bold text-[#d8bc77] lg:hidden">
+                    {step.number}
+                  </div>
+                  <div className="relative hidden aspect-4/5 items-center justify-center overflow-hidden rounded-2xl border border-[#d8bc77]/35 bg-[radial-gradient(circle_at_50%_20%,rgba(216,188,119,0.18),transparent_45%),rgba(43,15,23,0.62)] lg:flex">
                     <motion.div
                       whileHover={{ scale: 1.03, y: -2 }}
                       transition={{ duration: 0.3 }}
@@ -188,11 +197,11 @@ export function HowToRent() {
                       <step.icon className="h-5 w-5 text-[#d8bc77]" />
                     </div>
                   </div>
-                  <div className="px-2 pb-2 pt-4 text-center">
-                    <h3 className="font-serif text-xl leading-[1.04] text-[#fff3d6] transition-colors duration-300 group-hover:text-[#f6e7c2] md:text-2xl">
+                  <div className="min-w-0 pr-8 text-left lg:px-2 lg:pb-2 lg:pt-4 lg:text-center">
+                    <h3 className="font-serif text-base leading-[1.04] text-[#fff3d6] transition-colors duration-300 group-hover:text-[#f6e7c2] md:text-lg lg:text-xl">
                       {step.title}
                     </h3>
-                    <p className="mt-3 text-xs font-semibold uppercase tracking-[0.13em] text-[#d8bc77]/85 md:text-[0.7rem]">
+                    <p className="mt-1.5 text-xs font-medium leading-5 text-[#d8bc77]/85 lg:mt-3 lg:font-semibold lg:uppercase lg:tracking-[0.13em]">
                       {step.description}
                     </p>
                   </div>

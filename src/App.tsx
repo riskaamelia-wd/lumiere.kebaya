@@ -108,7 +108,7 @@ export default function App() {
       </div>
 
       <div
-        className={`pointer-events-none fixed right-0 top-0 z-20 ${ornamenSize}`}
+        className={`pointer-events-none fixed right-0 top-0 z-70 ${ornamenSize}`}
         aria-hidden
       >
         <motion.img
@@ -120,7 +120,7 @@ export default function App() {
         />
       </div>
       <div
-        className={`pointer-events-none fixed left-0 top-0 z-20 ${ornamenSize} scale-x-[-1]`}
+        className={`pointer-events-none fixed left-0 top-0 z-70 ${ornamenSize} scale-x-[-1]`}
         aria-hidden
       >
         <motion.img
@@ -157,7 +157,7 @@ export default function App() {
       </div>
 
       <header className="fixed inset-x-0 top-0 z-60 mx-auto max-w-6xl border-b border-[#c9a961]/10 bg-[#2a0f17]/45 shadow-[0_4px_24px_-12px_rgba(0,0,0,0.35)] backdrop-blur-[2px]">
-        <div className={`py-3 md:py-1.5`}>
+        <div className="px-2 py-3 md:px-14 md:py-1.5 lg:px-4">
           <Navigation />
         </div>
       </header>

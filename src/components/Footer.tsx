@@ -58,7 +58,7 @@ function FooterColumnTitle({
 }) {
   return (
     <h3
-      className={`pb-3 text-sm font-bold uppercase tracking-[0.22em] text-[#d8bc77] md:text-xs lg:text-sm ${className}`}
+      className={`pb-3 text-sm font-bold uppercase tracking-[0.22em] text-[#d8bc77] md:text-[0.68rem] lg:text-sm ${className}`}
     >
       {children}
     </h3>
@@ -66,7 +66,7 @@ function FooterColumnTitle({
 }
 
 function footerLinkClass() {
-  return "block text-sm tracking-[0.12em] text-[#f5e6be]/78 transition-colors hover:text-[#d8bc77] md:text-xs lg:text-sm";
+  return "block text-sm tracking-[0.12em] text-[#f5e6be]/78 transition-colors hover:text-[#d8bc77] md:text-[0.68rem] lg:text-sm";
 }
 
 function socialLinkClass() {
@@ -115,7 +115,7 @@ export function Footer() {
           aria-hidden
         />
 
-        <div className="relative grid items-stretch gap-6 lg:grid-cols-3 lg:gap-8">
+        <div className="relative grid items-stretch gap-6 md:grid-cols-3 lg:gap-8">
           <motion.div
             className="h-full rounded-3xl border border-[#d8bc77]/18 bg-[#f2e6cf]/5 p-5 backdrop-blur-[1px]"
             initial={{ opacity: 0, x: -20 }}
@@ -130,15 +130,15 @@ export function Footer() {
                 className="h-18 w-18 shrink-0 object-contain"
               />
               <div className="min-w-0">
-                <p className="font-serif text-2xl leading-none text-[#fff3d6]">
+                <p className="font-serif text-2xl leading-none text-[#fff3d6] md:text-xl lg:text-2xl">
                   Lumière Kebaya
                 </p>
-                <p className="mt-2 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[#d8bc77]/80">
+                <p className="mt-2 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[#d8bc77]/80 md:text-[0.58rem] lg:text-[0.65rem]">
                   Premium Rental
                 </p>
               </div>
             </div>
-            <p className="mt-5 text-sm leading-7 text-[#f5e6be]/72">
+            <p className="mt-5 text-sm leading-7 text-[#f5e6be]/72 md:text-[0.72rem] md:leading-6 lg:text-sm lg:leading-7">
               Kebaya pilihan untuk wisuda, lamaran, resepsi, dan momen spesial
               dengan layanan fitting yang nyaman.
             </p>
@@ -180,7 +180,7 @@ export function Footer() {
           </motion.div>
 
           <motion.div
-            className="grid h-full grid-cols-2 gap-6 rounded-3xl border border-[#d8bc77]/18 bg-[#f2e6cf]/5 p-5 backdrop-blur-[1px] md:gap-8 lg:grid-cols-1"
+            className="grid h-full grid-cols-2 gap-6 rounded-3xl border border-[#d8bc77]/18 bg-[#f2e6cf]/5 p-5 backdrop-blur-[1px] md:grid-cols-1 md:gap-8"
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.05 }}
@@ -228,7 +228,7 @@ export function Footer() {
             </FooterColumnTitle>
 
             <div className="flex flex-col gap-5">
-              <address className="space-y-3 text-sm not-italic md:text-xs lg:text-sm">
+              <address className="space-y-3 text-sm not-italic md:text-[0.68rem] lg:text-sm">
                 <div className="flex items-start justify-start gap-3">
                   <Phone
                     className="mt-0.5 h-4 w-4 shrink-0 text-[#d8bc77]"
@@ -272,7 +272,7 @@ export function Footer() {
                 href={WA_HREF}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-fit items-center justify-center gap-2 rounded-full border border-[#d8bc77]/65 bg-[#d8bc77] px-5 py-3 text-xs font-bold uppercase tracking-[0.08em] text-[#2d1419] shadow-[0_16px_30px_-24px_rgba(216,188,119,0.9)] transition-colors hover:bg-[#e8cd8d]"
+                className="inline-flex w-fit items-center justify-center gap-2 rounded-full border border-[#d8bc77]/65 bg-[#d8bc77] px-5 py-3 text-xs font-bold uppercase tracking-[0.08em] text-[#2d1419] shadow-[0_16px_30px_-24px_rgba(216,188,119,0.9)] transition-colors hover:bg-[#e8cd8d] md:text-[0.68rem] lg:text-xs"
                 whileHover={{ y: -1 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -284,7 +284,7 @@ export function Footer() {
         </div>
 
         <motion.div
-          className="relative mt-7 flex flex-col items-center justify-between gap-3 border-t border-[#d8bc77]/15 pt-5 text-center text-xs text-[#d8bc77]/55 md:flex-row md:text-left md:text-sm"
+          className="relative mt-7 flex flex-col items-center justify-between gap-3 border-t border-[#d8bc77]/15 pt-5 text-center text-xs text-[#d8bc77]/55 md:flex-row md:text-left md:text-[0.68rem] lg:text-sm"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.05 }}
@@ -296,7 +296,10 @@ export function Footer() {
               Back to top
             </a>
             <span className="h-1 w-1 rounded-full bg-[#d8bc77]/40" />
-            <a href="#katalog" className="transition-colors hover:text-[#d8bc77]">
+            <a
+              href="#katalog"
+              className="transition-colors hover:text-[#d8bc77]"
+            >
               Lihat katalog
             </a>
           </div>

@@ -5,16 +5,14 @@ import kebayaImage6 from "../assets/kebaya 6.jpg";
 export function About() {
   return (
     <motion.div
-      className="relative mt-8 flex min-h-screen items-center overflow-hidden py-10 md:py-14"
+      className="relative mt-8 flex min-h-screen items-center overflow-hidden py-10 md:min-h-0 md:py-14 lg:min-h-screen"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.05 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(216,188,119,0.12),transparent_34%)]"
-        aria-hidden
-      />
+      {/* bg-[radial-gradient(circle_at_22%_18%,rgba(216,188,119,0.12),transparent_34%)] */}
+      <div className="pointer-events-none absolute inset-0 " aria-hidden />
       <motion.section
         className="relative w-full overflow-hidden rounded-4xl border border-[#d8bc77]/20 bg-[#f2e6cf]/6 p-4 shadow-[0_22px_70px_-42px_rgba(0,0,0,0.9)] backdrop-blur-[1px] md:p-6 lg:p-8"
         initial={{ opacity: 0 }}
@@ -22,7 +20,7 @@ export function About() {
         viewport={{ once: true, amount: 0.05 }}
         transition={{ delay: 0.2, duration: 0.45 }}
       >
-        <div className="grid min-h-[calc(100vh-10rem)] items-center gap-7 md:grid-cols-[0.95fr_1.05fr] md:gap-10">
+        <div className="grid min-h-[calc(100vh-10rem)] items-center gap-7 md:min-h-0 md:grid-cols-[0.95fr_1.05fr] md:gap-10 lg:min-h-[calc(100vh-10rem)]">
           <motion.div
             className="relative min-h-96"
             initial={{ opacity: 0, x: -20 }}

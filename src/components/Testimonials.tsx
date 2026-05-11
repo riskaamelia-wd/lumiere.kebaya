@@ -90,7 +90,7 @@ export function Testimonials() {
 
   return (
     <motion.section
-      className="relative flex min-h-screen items-center overflow-hidden py-12 md:py-16"
+      className="relative flex min-h-screen items-center overflow-hidden py-12 md:min-h-0 md:py-16 lg:min-h-screen"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.05 }}

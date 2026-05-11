@@ -20,10 +20,10 @@ export function Navigation() {
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <div className="flex w-full flex-col gap-2.5">
-        <div className="flex w-full items-center justify-between gap-4 md:gap-6">
+        <div className="flex w-full items-center justify-center gap-4 md:justify-between md:gap-6">
           <motion.a
             href="#home"
-            className="flex min-w-0 shrink-0 items-center gap-3 md:gap-4"
+            className="flex min-w-0 shrink-0 items-center justify-center gap-3 md:justify-start md:gap-4"
             initial={{ opacity: 0, x: -12 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.05 }}
@@ -42,14 +42,14 @@ export function Navigation() {
           </motion.a>
 
           <motion.div
-            className="hidden min-w-0 flex-1 justify-center md:flex"
+            className="hidden min-w-0 flex-1 justify-end md:flex"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.05 }}
             transition={{ delay: 0.1, duration: 0.4 }}
           >
             <nav
-              className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-medium lg:gap-x-10"
+              className="flex flex-wrap items-center justify-end gap-x-6 gap-y-2 text-sm font-medium lg:gap-x-10"
               aria-label="Menu utama"
             >
               {navLinks.map((link, index) => (
@@ -70,7 +70,7 @@ export function Navigation() {
           </motion.div>
 
           <motion.div
-            className="shrink-0"
+            className="hidden shrink-0 lg:block"
             initial={{ opacity: 0, x: 12 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.05 }}
