@@ -100,7 +100,7 @@ export function FeaturedCatalog() {
       viewport={{ once: true, amount: 0.05 }}
       transition={{ duration: 0.55, ease: "easeOut" }}
     >
-      <div className="pointer-events-none absolute inset-x-0 top-8 h-80 bg-[radial-gradient(circle_at_center,rgba(216,188,119,0.14),transparent_65%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-8 h-80" />
       <div className="mx-auto w-full overflow-visible">
         <div className="relative h-0 overflow-visible">
           <motion.img
@@ -150,8 +150,8 @@ export function FeaturedCatalog() {
             </h2>
           </div>
           <p className="max-w-md text-sm leading-6 text-[#f2e6cf]/70 md:text-right">
-            Jelajahi koleksi kebaya premium dengan tampilan full image,
-            detail elegan, dan pilihan yang siap disesuaikan untuk acara Anda.
+            Jelajahi koleksi kebaya premium dengan tampilan full image, detail
+            elegan, dan pilihan yang siap disesuaikan untuk acara Anda.
           </p>
         </motion.div>
 

@@ -1,12 +1,14 @@
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
-import { Globe, Mail, Phone } from "lucide-react";
+import { Globe, Mail, MessageCircle, Phone } from "lucide-react";
 import logoImage from "../assets/logo.png";
+import ornamentImage from "../assets/ornamen.png";
 
-// * Ganti placeholder dengan URL profil sosial Anda.
+// * Replace placeholders with your social profile URLs.
 const FACEBOOK_URL = "https://www.facebook.com/YOUR_PAGE";
 const INSTAGRAM_URL = "https://www.instagram.com/YOUR_USERNAME/";
 const TIKTOK_URL = "https://www.tiktok.com/@YOUR_USERNAME";
+const WA_HREF = "https://wa.me/628997337380";
 
 function FacebookLogoIcon({ className }: { className?: string }) {
   return (
@@ -56,7 +58,7 @@ function FooterColumnTitle({
 }) {
   return (
     <h3
-      className={`pb-3 pt-3 font-bold uppercase text-sm tracking-[0.3em] text-[#d4af37] md:text-xs md:tracking-[0.2em] lg:text-sm  ${className}`}
+      className={`pb-3 text-sm font-bold uppercase tracking-[0.22em] text-[#d8bc77] md:text-xs lg:text-sm ${className}`}
     >
       {children}
     </h3>
@@ -64,43 +66,127 @@ function FooterColumnTitle({
 }
 
 function footerLinkClass() {
-  return "block text-sm tracking-[0.2em] text-[#f5e6be] transition-colors hover:text-[#d4af37] md:text-xs md:tracking-[0.12em] lg:text-sm lg:tracking-[0.2em]";
+  return "block text-sm tracking-[0.12em] text-[#f5e6be]/78 transition-colors hover:text-[#d8bc77] md:text-xs lg:text-sm";
+}
+
+function socialLinkClass() {
+  return "flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#d8bc77]/30 bg-[#2b0f17]/70 text-[#d8bc77] transition-colors hover:bg-[#3d161f]";
 }
 
 export function Footer() {
   return (
     <motion.footer
-      className="relative overflow-hidden bg-[#2d0b0b] text-[#f5e6be] py-12 mt-3 "
+      className="relative mt-8 overflow-visible pb-6 pt-4 text-[#f5e6be]"
       id="kontak"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.05 }}
       transition={{ duration: 0.55, ease: "easeOut" }}
     >
-      <div className="relative z-10">
-        <div className="flex flex-col items-center gap-12 md:flex-row md:items-start md:justify-between md:gap-8 lg:gap-6">
+      <motion.img
+        src={ornamentImage}
+        alt=""
+        className="pointer-events-none absolute -bottom-2 -left-8 z-10 h-20 opacity-55 md:h-24"
+        aria-hidden
+        animate={{ y: [0, -7, 0], rotate: [0, -2, 0] }}
+        transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.img
+        src={ornamentImage}
+        alt=""
+        className="pointer-events-none absolute -bottom-2 -right-8 z-10 h-20 scale-x-[-1] opacity-55 md:h-24"
+        aria-hidden
+        animate={{ y: [0, -7, 0], rotate: [0, 2, 0] }}
+        transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      <div className="relative z-10 overflow-hidden rounded-4xl border border-[#d8bc77]/20 bg-[#250b12]/78 p-5 shadow-[0_-18px_70px_-48px_rgba(216,188,119,0.85)] backdrop-blur-[2px] md:p-7 lg:p-8">
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(216,188,119,0.16),transparent_42%),linear-gradient(180deg,rgba(216,188,119,0.06),transparent_34%)]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.08]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, #d8bc77 1px, transparent 1px)",
+            backgroundSize: "20px 20px",
+          }}
+          aria-hidden
+        />
+
+        <div className="relative grid items-stretch gap-6 lg:grid-cols-3 lg:gap-8">
           <motion.div
-            className="flex w-full max-w-md shrink-0 justify-between gap-8 border-t-2 border-[#d4af37]/55 sm:max-w-none sm:justify-start md:w-auto md:max-w-none md:gap-14 "
+            className="h-full rounded-3xl border border-[#d8bc77]/18 bg-[#f2e6cf]/5 p-5 backdrop-blur-[1px]"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.05 }}
             transition={{ delay: 0.12, duration: 0.45 }}
           >
-            <div className="min-w-[7.5rem] flex-1 sm:flex-none">
-              <FooterColumnTitle>Tautan Langsung</FooterColumnTitle>
-              <nav className="space-y-2.5">
-                <a href="#home" className={footerLinkClass()}>
-                  Beranda
-                </a>
-                <a href="#katalog" className={footerLinkClass()}>
-                  Cara Memesan
-                </a>
-                <a href="#kontak" className={footerLinkClass()}>
-                  Kontak
-                </a>
-              </nav>
+            <div className="flex items-center gap-4">
+              <img
+                src={logoImage}
+                alt="Lumière Kebaya"
+                className="h-18 w-18 shrink-0 object-contain"
+              />
+              <div className="min-w-0">
+                <p className="font-serif text-2xl leading-none text-[#fff3d6]">
+                  Lumière Kebaya
+                </p>
+                <p className="mt-2 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[#d8bc77]/80">
+                  Premium Rental
+                </p>
+              </div>
             </div>
-            <div className="min-w-[7.5rem] flex-1 sm:flex-none">
+            <p className="mt-5 text-sm leading-7 text-[#f5e6be]/72">
+              Kebaya pilihan untuk wisuda, lamaran, resepsi, dan momen spesial
+              dengan layanan fitting yang nyaman.
+            </p>
+            <div className="mt-5 flex gap-3">
+              <motion.a
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook Lumière Kebaya"
+                className={socialLinkClass()}
+                whileHover={{ y: -1 }}
+                whileTap={{ scale: 0.96 }}
+              >
+                <FacebookLogoIcon className="h-[15px] w-[15px]" />
+              </motion.a>
+              <motion.a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram Lumière Kebaya"
+                className={socialLinkClass()}
+                whileHover={{ y: -1 }}
+                whileTap={{ scale: 0.96 }}
+              >
+                <InstagramLogoIcon className="h-[15px] w-[15px]" />
+              </motion.a>
+              <motion.a
+                href={TIKTOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok Lumière Kebaya"
+                className={socialLinkClass()}
+                whileHover={{ y: -1 }}
+                whileTap={{ scale: 0.96 }}
+              >
+                <TikTokLogoIcon className="h-[15px] w-[15px]" />
+              </motion.a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="grid h-full grid-cols-2 gap-6 rounded-3xl border border-[#d8bc77]/18 bg-[#f2e6cf]/5 p-5 backdrop-blur-[1px] md:gap-8 lg:grid-cols-1"
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ delay: 0.16, duration: 0.45 }}
+          >
+            <div>
               <FooterColumnTitle>Layanan</FooterColumnTitle>
               <nav className="space-y-2.5">
                 <a href="#katalog" className={footerLinkClass()}>
@@ -114,123 +200,106 @@ export function Footer() {
                 </a>
               </nav>
             </div>
+            <div>
+              <FooterColumnTitle>Eksplor</FooterColumnTitle>
+              <nav className="space-y-2.5">
+                <a href="#home" className={footerLinkClass()}>
+                  Beranda
+                </a>
+                <a href="#cara-sewa" className={footerLinkClass()}>
+                  Cara Memesan
+                </a>
+                <a href="#kontak" className={footerLinkClass()}>
+                  Bantuan
+                </a>
+              </nav>
+            </div>
           </motion.div>
 
           <motion.div
-            className="flex w-[clamp(10rem,18vw,14rem)] shrink-0 flex-col items-center p-0 md:h-auto md:w-[clamp(7rem,14vw,9rem)] md:mt-6 md:justify-center lg:mt-0 lg:w-[clamp(10rem,18vw,14rem)] lg:flex-1 "
-            initial={{ opacity: 0, scale: 0.94 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.05 }}
-            transition={{ delay: 0.2, duration: 0.45 }}
-          >
-            <motion.img
-              src={logoImage}
-              alt="Lumière Kebaya"
-              className="block h-auto w-full object-contain max-h-[clamp(10rem,18vw,14rem)] md:max-h-[clamp(10rem,18vw,14rem)] lg:w-[clamp(10rem,18vw,14rem)]"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
-            />
-          </motion.div>
-
-          <motion.div
-            className="w-full shrink-0 border-t border-[#d4af37]/55 md:max-w-sm lg:max-w-md "
+            className="h-full w-full rounded-3xl border border-[#d8bc77]/18 bg-[#f2e6cf]/5 p-5 backdrop-blur-[1px]"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.05 }}
             transition={{ delay: 0.18, duration: 0.45 }}
           >
-            <FooterColumnTitle className="md:text-left text-center">
+            <FooterColumnTitle className="text-center md:text-left">
               Kontak
             </FooterColumnTitle>
 
-            <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-center md:items-start lg:items-center lg:justify-around  justify-start md:gap-18 lg:gap-12">
-              <address className="space-y-3 text-sm md:text-xs lg:text-sm not-italic ">
-                <div className="flex items-start gap-3 justify-start">
+            <div className="flex flex-col gap-5">
+              <address className="space-y-3 text-sm not-italic md:text-xs lg:text-sm">
+                <div className="flex items-start justify-start gap-3">
                   <Phone
-                    className="mt-0.5 h-4 w-4 shrink-0 text-[#d4af37]"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-[#d8bc77]"
                     aria-hidden
                   />
                   <a
                     href="tel:+628997337380"
-                    className="text-left transition-colors hover:text-[#d4af37] md:text-right tracking-[0.2em]"
+                    className="text-left tracking-[0.12em] text-[#f5e6be]/78 transition-colors hover:text-[#d8bc77]"
                   >
                     0899 733 7380
                   </a>
                 </div>
-                <div className="flex items-start gap-3 justify-start">
+                <div className="flex items-start justify-start gap-3">
                   <Mail
-                    className="mt-0.5 h-4 w-4 shrink-0 text-[#d4af37]"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-[#d8bc77]"
                     aria-hidden
                   />
                   <a
                     href="mailto:info@lumiere.com"
-                    className="break-all text-left transition-colors hover:text-[#d4af37] md:text-right tracking-[0.2em]"
+                    className="break-all text-left tracking-[0.12em] text-[#f5e6be]/78 transition-colors hover:text-[#d8bc77]"
                   >
                     info@lumiere.com
                   </a>
                 </div>
-                <div className="flex items-start gap-3 justify-start">
+                <div className="flex items-start justify-start gap-3">
                   <Globe
-                    className="mt-0.5 h-4 w-4 shrink-0 text-[#d4af37]"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-[#d8bc77]"
                     aria-hidden
                   />
                   <a
                     href="https://www.lumiere.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-left transition-colors hover:text-[#d4af37] md:text-right tracking-[0.2em]"
+                    className="text-left tracking-[0.12em] text-[#f5e6be]/78 transition-colors hover:text-[#d8bc77]"
                   >
                     www.lumiere.com
                   </a>
                 </div>
               </address>
-              <div className="flex flex-row gap-2.5 md:relative md:flex-col md:gap-2.5 md:top-[-1.8rem] lg:static lg:flex-row lg:gap-4 lg:top-0 ">
-                <motion.a
-                  href={FACEBOOK_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Facebook Lumière Kebaya"
-                  className="flex h-12 w-12 md:h-9 md:w-9 lg:h-12 lg:w-12 shrink-0 items-center justify-center rounded-full bg-[#3d1616] text-[#d4af37] ring-1 ring-[#d4af37]/35 transition-colors hover:bg-[#4a2525]"
-                  whileHover={{ y: -1 }}
-                  whileTap={{ scale: 0.96 }}
-                >
-                  <FacebookLogoIcon className="h-[15px] w-[15px] md:h-3 md:w-3 lg:h-[15px] lg:w-[15px]" />
-                </motion.a>
-                <motion.a
-                  href={INSTAGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram Lumière Kebaya"
-                  className="flex h-12 w-12 md:h-9 md:w-9 lg:h-12 lg:w-12 shrink-0 items-center justify-center rounded-full bg-[#3d1616] text-[#d4af37] ring-1 ring-[#d4af37]/35 transition-colors hover:bg-[#4a2525]"
-                  whileHover={{ y: -1 }}
-                  whileTap={{ scale: 0.96 }}
-                >
-                  <InstagramLogoIcon className="h-[15px] w-[15px] md:h-3 md:w-3 lg:h-[15px] lg:w-[15px]" />
-                </motion.a>
-                <motion.a
-                  href={TIKTOK_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="TikTok Lumière Kebaya"
-                  className="flex h-12 w-12 md:h-9 md:w-9 lg:h-12 lg:w-12 shrink-0 items-center justify-center rounded-full bg-[#3d1616] text-[#d4af37] ring-1 ring-[#d4af37]/35 transition-colors hover:bg-[#4a2525]"
-                  whileHover={{ y: -1 }}
-                  whileTap={{ scale: 0.96 }}
-                >
-                  <TikTokLogoIcon className="h-[15px] w-[15px] md:h-3 md:w-3 lg:h-[15px] lg:w-[15px]" />
-                </motion.a>
-              </div>
+              <motion.a
+                href={WA_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-fit items-center justify-center gap-2 rounded-full border border-[#d8bc77]/65 bg-[#d8bc77] px-5 py-3 text-xs font-bold uppercase tracking-[0.08em] text-[#2d1419] shadow-[0_16px_30px_-24px_rgba(216,188,119,0.9)] transition-colors hover:bg-[#e8cd8d]"
+                whileHover={{ y: -1 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <MessageCircle className="h-4 w-4" />
+                Chat WhatsApp
+              </motion.a>
             </div>
           </motion.div>
         </div>
 
         <motion.div
-          className="mt-12 border-t border-[#d4af37]/20 pt-6 text-center text-xs text-[#d4af37]/55 md:text-sm"
+          className="relative mt-7 flex flex-col items-center justify-between gap-3 border-t border-[#d8bc77]/15 pt-5 text-center text-xs text-[#d8bc77]/55 md:flex-row md:text-left md:text-sm"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.05 }}
           transition={{ delay: 0.3, duration: 0.4 }}
         >
           <p>&copy; 2026 Lumière Kebaya. All rights reserved.</p>
+          <div className="flex items-center gap-3">
+            <a href="#home" className="transition-colors hover:text-[#d8bc77]">
+              Back to top
+            </a>
+            <span className="h-1 w-1 rounded-full bg-[#d8bc77]/40" />
+            <a href="#katalog" className="transition-colors hover:text-[#d8bc77]">
+              Lihat katalog
+            </a>
+          </div>
         </motion.div>
       </div>
     </motion.footer>

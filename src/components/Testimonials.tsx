@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 
 const testimonials = [
   {
@@ -90,13 +90,14 @@ export function Testimonials() {
 
   return (
     <motion.section
-      className="relative overflow-hidden border-y border-[#dac58f]/50 bg-[#efe3cb] py-7"
+      className="relative flex min-h-screen items-center overflow-hidden py-12 md:py-16"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.05 }}
       transition={{ duration: 0.55, ease: "easeOut" }}
     >
-      <div className="absolute inset-0 opacity-[0.09]">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(216,188,119,0.16),transparent_36%),linear-gradient(180deg,rgba(43,15,23,0),rgba(43,15,23,0.42)_48%,rgba(43,15,23,0))]" />
+      <div className="absolute inset-0 opacity-[0.08]">
         <div
           className="absolute inset-0"
           style={{
@@ -108,19 +109,28 @@ export function Testimonials() {
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-5xl px-3 md:px-5">
-        <motion.h2
-          className="mb-7 text-center font-serif text-3xl tracking-tight text-[#2c1417] sm:text-4xl md:text-5xl"
+        <motion.div
+          className="mx-auto mb-8 max-w-2xl text-center md:mb-10"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.05 }}
           transition={{ delay: 0.1, duration: 0.4 }}
         >
-          Client Testimonials
-        </motion.h2>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#d8bc77]/75">
+            Suara pelanggan
+          </p>
+          <h2 className="font-serif text-3xl tracking-tight text-[#f2e6cf] sm:text-4xl md:text-5xl">
+            Client Testimonials
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-[#f2e6cf]/70 md:text-base">
+            Pengalaman pelanggan yang tampil percaya diri bersama koleksi
+            Lumière Kebaya.
+          </p>
+        </motion.div>
 
-        <div className="overflow-hidden">
+        <div className="overflow-hidden rounded-4xl border border-[#d8bc77]/20 bg-[#f2e6cf]/5 p-3 shadow-[0_22px_70px_-40px_rgba(0,0,0,0.9)] backdrop-blur-[1px] md:p-5">
           <div
-            className="flex transition-transform duration-700 ease-out"
+            className="flex transition-transform duration-700 ease-out will-change-transform"
             style={{
               transform: `translateX(-${(currentIndex * 100) / cardsPerView}%)`,
             }}
@@ -128,7 +138,7 @@ export function Testimonials() {
             {testimonials.map((testimonial) => (
               <motion.div
                 key={testimonial.id}
-                className="px-2 text-center"
+                className="px-2"
                 style={{ flex: `0 0 ${100 / cardsPerView}%` }}
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -138,30 +148,35 @@ export function Testimonials() {
                   duration: 0.35,
                 }}
               >
-                <div className="mx-auto mb-3 h-28 w-28 overflow-hidden rounded-full border-[3px] border-[#d1b374] shadow-[0_2px_10px_rgba(0,0,0,0.12)]">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="h-full w-full object-cover"
-                  />
+                <div className="relative h-full min-h-80 rounded-3xl border border-[#d8bc77]/18 bg-[#2b0f17]/72 p-5 text-left shadow-[0_18px_42px_-32px_rgba(0,0,0,0.9)] transition-all duration-300 hover:-translate-y-1 hover:border-[#d8bc77]/45 hover:bg-[#35131f]/80 md:p-6">
+                  <Quote className="absolute right-5 top-5 h-9 w-9 text-[#d8bc77]/18" />
+                  <div className="mb-5 flex items-center gap-4">
+                    <div className="h-16 w-16 shrink-0 overflow-hidden rounded-2xl border border-[#d8bc77]/45 bg-[#efe3cb] shadow-[0_12px_28px_-22px_rgba(216,188,119,0.9)]">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="font-serif text-xl leading-tight text-[#fff3d6]">
+                        {testimonial.name}
+                      </p>
+                      <div className="mt-2 flex gap-1">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="h-4 w-4 fill-[#d8bc77] text-[#d8bc77]"
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="min-h-28 text-sm italic leading-7 text-[#f2e6cf]/78">
+                    "{testimonial.text}"
+                  </p>
                 </div>
-
-                <div className="mb-2 flex justify-center gap-1">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-4 w-4 fill-[#b79048] text-[#b79048]"
-                    />
-                  ))}
-                </div>
-
-                <p className="mb-1 min-h-[4.5rem] px-2 text-sm italic leading-relaxed text-[#3f2a26]">
-                  "{testimonial.text}"
-                </p>
-
-                <p className="text-sm font-semibold text-[#2c1417]">
-                  {testimonial.name}
-                </p>
               </motion.div>
             ))}
           </div>
@@ -180,8 +195,10 @@ export function Testimonials() {
                 key={dotIndex}
                 type="button"
                 aria-label={`Lihat slide ${dotIndex + 1}`}
-                className={`h-2.5 w-2.5 rounded-full transition-colors ${
-                  currentIndex === dotIndex ? "bg-[#8f6d34]" : "bg-[#d4be8f]"
+                className={`h-2.5 rounded-full transition-all ${
+                  currentIndex === dotIndex
+                    ? "w-8 bg-[#d8bc77]"
+                    : "w-2.5 bg-[#d8bc77]/35"
                 }`}
                 onClick={() => setCurrentIndex(dotIndex)}
                 whileHover={{ scale: 1.1 }}
