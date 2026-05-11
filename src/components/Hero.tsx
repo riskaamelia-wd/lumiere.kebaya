@@ -1,8 +1,12 @@
 import { CalendarHeart, Clock, MessageCircle, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import heroImage from "../assets/jumbotron.jpg";
+import {
+  GENERAL_WHATSAPP_MESSAGE,
+  getWhatsAppHref,
+} from "../lib/constant/const";
 
-const WA_HREF = "https://wa.me/6281234567890";
+const WA_HREF = getWhatsAppHref(GENERAL_WHATSAPP_MESSAGE);
 
 export function Hero() {
   return (

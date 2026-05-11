@@ -1,7 +1,11 @@
 import logoImage from "../assets/logo.png";
 import { motion } from "framer-motion";
+import {
+  GENERAL_WHATSAPP_MESSAGE,
+  getWhatsAppHref,
+} from "../lib/constant/const";
 
-const WA_HREF = "https://wa.me/6281234567890";
+const WA_HREF = getWhatsAppHref(GENERAL_WHATSAPP_MESSAGE);
 
 export function Navigation() {
   const navLinks = [

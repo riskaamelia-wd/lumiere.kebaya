@@ -3,12 +3,19 @@ import { motion } from "framer-motion";
 import { Globe, Mail, MessageCircle, Phone } from "lucide-react";
 import logoImage from "../assets/logo.png";
 import ornamentImage from "../assets/ornamen.png";
+import {
+  GENERAL_WHATSAPP_MESSAGE,
+  WHATSAPP_NUMBER,
+  FACEBOOK_URL,
+  INSTAGRAM_URL,
+  TIKTOK_URL,
+  EMAIL_ADDRESS,
+  WEBSITE_URL,
+  getWhatsAppHref,
+} from "../lib/constant/const";
 
 // * Replace placeholders with your social profile URLs.
-const FACEBOOK_URL = "https://www.facebook.com/YOUR_PAGE";
-const INSTAGRAM_URL = "https://www.instagram.com/YOUR_USERNAME/";
-const TIKTOK_URL = "https://www.tiktok.com/@YOUR_USERNAME";
-const WA_HREF = "https://wa.me/628997337380";
+const WA_HREF = getWhatsAppHref(GENERAL_WHATSAPP_MESSAGE);
 
 function FacebookLogoIcon({ className }: { className?: string }) {
   return (
@@ -235,10 +242,12 @@ export function Footer() {
                     aria-hidden
                   />
                   <a
-                    href="tel:+628997337380"
+                    href={WA_HREF}
                     className="text-left tracking-[0.12em] text-[#f5e6be]/78 transition-colors hover:text-[#d8bc77]"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    0899 733 7380
+                    {WHATSAPP_NUMBER}
                   </a>
                 </div>
                 <div className="flex items-start justify-start gap-3">
@@ -247,10 +256,10 @@ export function Footer() {
                     aria-hidden
                   />
                   <a
-                    href="mailto:info@lumiere.com"
+                    href={`mailto:${EMAIL_ADDRESS}`}
                     className="break-all text-left tracking-[0.12em] text-[#f5e6be]/78 transition-colors hover:text-[#d8bc77]"
                   >
-                    info@lumiere.com
+                    {EMAIL_ADDRESS}
                   </a>
                 </div>
                 <div className="flex items-start justify-start gap-3">
@@ -259,7 +268,7 @@ export function Footer() {
                     aria-hidden
                   />
                   <a
-                    href="https://www.lumiere.com"
+                    href={WEBSITE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-left tracking-[0.12em] text-[#f5e6be]/78 transition-colors hover:text-[#d8bc77]"

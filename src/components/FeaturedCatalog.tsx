@@ -8,6 +8,7 @@ import kebayaImage3 from "../assets/kebaya 3.jpg";
 import kebayaImage4 from "../assets/kebaya 4.jpg";
 import kebayaImage5 from "../assets/kebaya 5.jpg";
 import kebayaImage6 from "../assets/kebaya 6.jpg";
+import { getWhatsAppHref } from "../lib/constant/const";
 
 const catalogItems = [
   {
@@ -47,6 +48,21 @@ const catalogItems = [
     image: kebayaImage6,
   },
 ];
+
+const getCatalogWhatsAppHref = (title: string, image: string) => {
+  const origin = typeof window === "undefined" ? "" : window.location.origin;
+  const imageUrl = image.startsWith("http") ? image : `${origin}${image}`;
+  const message = [
+    "Halo Lumière Kebaya, saya ingin bertanya mengenai kebaya berikut.",
+    "",
+    `Nama kebaya: ${title}`,
+    `Gambar kebaya: ${imageUrl}`,
+    "",
+    "Mohon informasi ketersediaan, ukuran, dan biaya sewanya. Terima kasih.",
+  ].join("\n");
+
+  return getWhatsAppHref(message);
+};
 
 export function FeaturedCatalog() {
   const [isDesktop, setIsDesktop] = useState(false);
@@ -186,13 +202,16 @@ export function FeaturedCatalog() {
                     <h3 className="mb-4 font-serif text-xl leading-[1.05] text-[#fff3d6] drop-shadow transition-colors duration-300 group-hover:text-[#f6e7c2] md:text-2xl">
                       {item.title}
                     </h3>
-                    <motion.button
+                    <motion.a
+                      href={getCatalogWhatsAppHref(item.title, item.image)}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="rounded-full border border-[#d8bc77]/70 bg-[#d8bc77] px-5 py-2 text-[0.65rem] font-bold uppercase tracking-wider text-[#2a0f17] shadow-[0_12px_24px_-18px_rgba(216,188,119,0.9)] transition-all duration-200 hover:bg-[#e8cd8d] active:scale-95"
                       whileHover={{ y: -1 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      Lihat Detail
-                    </motion.button>
+                      Sewa Sekarang
+                    </motion.a>
                   </div>
                 </div>
               </motion.div>
