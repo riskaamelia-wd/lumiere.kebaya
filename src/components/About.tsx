@@ -68,7 +68,7 @@ export function About() {
               abadi dengan sentuhan modern. Kami hadir untuk mereka yang
               berselera resepsi yang mewah, atau lamaran yang khidmat.
             </p>
-            <div className="mb-6 grid grid-cols-3 gap-3 text-center">
+            <div className="mb-6 grid grid-cols-3 gap-2 text-center sm:gap-3">
               {[
                 { value: "Premium", label: "Kurasi" },
                 { value: "Fitting", label: "Personal" },
@@ -76,12 +76,12 @@ export function About() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-2xl border border-[#d8bc77]/15 bg-[#f2e6cf]/5 px-3 py-3"
+                  className="rounded-2xl border border-[#d8bc77]/15 bg-[#f2e6cf]/5 px-2 py-3 sm:px-3"
                 >
-                  <p className="font-serif text-lg font-bold text-[#d8bc77]">
+                  <p className="font-serif text-[clamp(0.95rem,4vw,1.25rem)] font-bold leading-none text-[#d8bc77] sm:text-lg">
                     {item.value}
                   </p>
-                  <p className="mt-1 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-[#f2e6cf]/55">
+                  <p className="mt-2 text-[0.56rem] font-semibold uppercase tracking-[0.12em] text-[#f2e6cf]/55 sm:text-[0.62rem]">
                     {item.label}
                   </p>
                 </div>
